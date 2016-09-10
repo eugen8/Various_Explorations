@@ -9,14 +9,14 @@
 
     window.addEventListener('resize',function(){
         console.log('resized window');
-        printDimensions();
+        // printDimensions();
     });
     window.addEventListener('scroll',function(){
         console.log('scrolling');
         printDimensions();
     })
     var square = document.getElementById('square');
-
+    var printButton = document.getElementById("bigbutton").addEventListener('click',printDimensions);
 
     printDimensions();
     function printDimensions(){
@@ -31,9 +31,13 @@
         console.log('document.body.offsetHeight'+document.body.offsetHeight);
         console.log('document.body.offsetWidth='+document.body.offsetWidth);
         console.log('document.body.scrollTop='+document.body.scrollTop);
+        console.log('window.pageYOffset='+window.pageYOffset);
+        console.log('window.scrollY='+window.scrollY);
+        console.log("document.documentElement.scrollTop="+document.documentElement.scrollTop);
         console.log('document.body.scrollLeft='+document.body.scrollLeft);
 
-        var scrollTop = document.body.scrollTop;
+        var scrollTop = window.scrollY || window.pageYOffset ||
+            document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
         var windowHeight = window.innerHeight;
         console.log('square.offsetHeight='+square.offsetHeight);
         console.log("square.scrollHeight="+square.scrollHeight);
@@ -42,11 +46,11 @@
         console.log("document.documentElement.clientHeight="+document.documentElement.clientHeight);
 
         var middlescreen = windowHeight/2;
-
+        console.log(middlescreen, scrollTop, square.scrollHeight)
         square.style.top=middlescreen+scrollTop - square.scrollHeight/2+"px";
         square.style.left=(window.innerWidth/2)+(document.body.scrollLeft)-(square.scrollWidth/2)+'px';
         console.log('square.style.top='+square.style.top)
-        square.scrollTop='30px';
+
 
 
     }
