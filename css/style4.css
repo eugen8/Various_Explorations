@@ -1,0 +1,66 @@
+
+.largeDiv{
+    display:block;
+    background-color:yellow;
+    color:red;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+
+}
+.method2div1{
+    position:relative;
+    height:70px;
+    width:100%;
+    background-color:cyan;
+    color:gray;
+    font-weight:bold;
+}
+.method2div2{
+    position:absolute;
+    margin:auto;
+    text-align:center;
+    width:70%;
+    height:1em;
+    left:0;
+    right:0;
+    top:0;bottom:0;
+    /* background-color:red; */
+}
+.method3div1{
+    height:89px;
+    background-color:darkgreen;
+    color:lightgreen;
+    text-align:center;
+}
+.method3div1:before {
+    /* content: "see that"; */
+    content:"";
+    background-color:white;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.method4div1{
+    height:70px;
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+.method4div1 table {
+    background-color:#333333;
+    height:100%;
+    border:0;
+    /* vertical-align:middle; */
+    vertical-align:bottom;
+    border-spacing:0;
+    border:0;
+    width: 100%;
+
+
+}
+.method4div1 table td{
+    background-color:blue;
+    vertical-align:middle;
+    /*  vertical-align:bottom; */
+}
