@@ -64,3 +64,14 @@
     vertical-align:middle;
     /*  vertical-align:bottom; */
 }
+.method5div1{
+    display: table;
+    background-color: #8a6d3b;
+    width: 100%;
+    text-align: center;height: 89px
+}
+.method5div2{
+    color: #b2dba1;
+    display: table-cell;
+    vertical-align:middle
+}
