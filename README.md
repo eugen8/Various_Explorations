@@ -4,3 +4,8 @@ Exploring and playing with web  css, gradinet, position, viewports, bootstrap, j
 Contents (some of it):
 
 index4.html and css/style4.css - has different ways of achieving vertical alignment of text
+
+
+Also some info here:
+https://codepen.io/edge0703/pen/iHJuA
+
