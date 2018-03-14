@@ -1,0 +1,47 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+
+I have been fighting a little with Blogger and KaTeX to work nicer together and easily display the mathematical symbols. Ended up figuring out this is a way to do it. Another thing I discovered is that in Compose view of blogger &lt;div&gt;...&lt;/div&gt; actually gets interpreted, going to Options and choosing <i>Show HTML literally</i> helps.
+
+Back on how to use KaTeX, which is the Khan Accademy's implementation of LaTeX.
+
+1) First we need to add the CDN file locations for the javascript and stylesheet. Go to&nbsp;<a href="https://github.com/Khan/KaTeX">https://github.com/Khan/KaTeX</a> and copy the locations, as of this writing it was:
+
+
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace; font-size: x-small;">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous"&gt;</span>
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace; font-size: x-small;">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" crossorigin="anonymous"&gt;&lt;/script&gt;</span>
+
+
+Click to HTML button on your blogpost editor, and add these lines. Now you are ready to start rendering mathematical notations.
+
+2) create a &lt;div&gt;&lt;/div&gt; where you want a formula, and use KaTeX javascript command with document.write to render it immediately, e.g.
+&lt;div&gt;
+&lt;script&gt;
+document.write( katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}") );
+&lt;/script&gt;
+&lt;div&gt;
+
+Below is the result:
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" rel="stylesheet"></link>
+<script crossorigin="anonymous" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<div>
+<script>
+document.write(katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}"));
+</script>
+</div>
+<div>
+
+
+Note that I am using double backslash \\ because backslash is the escape character in Javascript and a double backslash will provide KaTeX with the one backslash it requires. 
+
+Now you can simply use the &lt;div&gt;&lt;script&gt;document.write(...);&lt;/script&gt;&lt;/div&gt;&nbsp; to put math formulas wherever you need them.
+
+</div>
+<div style="font-size: 3.1em;">
+<script>document.write(katex.renderToString("g(x)=\\int_\\infty^{10}f(x)dx", {displayMode: true}))</script></div>
+
+Good luck!
+<div>
+
+</div>
+<div>
+More information and documentation on KaTeX you can find here:&nbsp;<a href="https://khan.github.io/KaTeX/">https://khan.github.io/KaTeX/</a>
